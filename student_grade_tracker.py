@@ -47,9 +47,14 @@ while True:
         print("Student not found.")
 
     if choice == "3":
-        print(students)
-
-    elif choice == "4":
+     if not students:
+        print("No students found.")
+    else:
+        print("\nStudent Records:")
+        for name, grades in students.items():
+            print(f"{name}: {grades}")
+    
+    if choice == "4":
         name = input("Student name: ")
 
         if name in students and len(students[name]) > 0:
