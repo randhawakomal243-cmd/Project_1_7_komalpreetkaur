@@ -20,25 +20,33 @@ while True:
     choice = input("Choose option: ")
 
     if choice == "1":
-    name = input("Enter student name: ")
+     name = input("Enter student name: ")
 
     if name not in students:
         students[name] = []
         print("Student added successfully.")
     else:
         print("Student already exists.")
-
+    
     if choice == "2":
-        name = input("Student name: ")
+     name = input("Enter student name: ")
 
-        if name in students:
-            grade = float(input("Enter grade: "))
-            students[name].append(grade)
-            print("Grade added.")
-        else:
-            print("Student not found.")
+    if name in students:
+        try:
+            grade = float(input("Enter grade (0-100): "))
 
-    elif choice == "3":
+            if 0 <= grade <= 100:
+                students[name].append(grade)
+                print("Grade added successfully.")
+            else:
+                print("Grade must be between 0 and 100.")
+
+        except ValueError:
+            print("Please enter a valid number.")
+    else:
+        print("Student not found.")
+
+    if choice == "3":
         print(students)
 
     elif choice == "4":
