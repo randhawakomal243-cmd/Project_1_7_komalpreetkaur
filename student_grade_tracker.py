@@ -20,11 +20,15 @@ while True:
     choice = input("Choose option: ")
 
     if choice == "1":
-        name = input("Student name: ")
-        students[name] = []
-        print("Student added.")
+    name = input("Enter student name: ")
 
-    elif choice == "2":
+    if name not in students:
+        students[name] = []
+        print("Student added successfully.")
+    else:
+        print("Student already exists.")
+
+    if choice == "2":
         name = input("Student name: ")
 
         if name in students:
