@@ -55,14 +55,19 @@ while True:
             print(f"{name}: {grades}")
     
     if choice == "4":
-        name = input("Student name: ")
+     name = input("Enter student name: ")
 
-        if name in students and len(students[name]) > 0:
-            avg = sum(students[name]) / len(students[name])
-            print("Average:", round(avg, 2))
+    if name in students:
+        grades = students[name]
+
+        if len(grades) > 0:
+            average = sum(grades) / len(grades)
+            print(f"{name}'s average grade is {average:.2f}")
         else:
-            print("No grades found.")
-
+            print("No grades available for this student.")
+    else:
+        print("Student not found.")
+        
     elif choice == "5":
         print("Goodbye!")
         break
